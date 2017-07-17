@@ -1,30 +1,33 @@
 package com.company;
 //має бути 2 класи з цими трьома методами, перший числовий, інший для додавання
 
-//має бути клас парсер, в класі мають бути наступні методи:
-//isEnd чи закінчилося розпізнання поточного елемента (числа або математичної дії)
-//apply метод, який продовжує приймати твій поточний елемент
-//startNewParser повертає новий парсер, приймає чар
-class MathExpression {
-    //парсерліст
-    //parser тільки додатні числа і тільки з +, може бути з повторенням
+import java.util.ArrayList;
 
-    // NumberParser parser = new NumberParser()
+public class MathExpression {
 
-    //read about interfaces
-    //конструктор
+    private static ArrayList<String> list;
 
-    NumParser parser = new NumParser();
+    private static void addToList(String element) {
+        list.add(element);
+    }
 
+    public static void printList(){
+        for (String aList : list) {
+            System.out.println(aList);
+        }
+    }
+
+    public static Object parser;
     public MathExpression(String expression) {
+        NumParser parser = new NumParser();
         for (int i = 0; i < expression.length(); i++) {
             char item = expression.charAt(i);
-            //if (parser.isEnd(item)) {
-            //  parser = parser.startNewParser(item);
-            // addToList(parser);
-            //} else {
-            //  parser.apply(item);
-            //}
+            if (parser.isEnd(item)) {
+                parser = (NumParser) parser.startNewParser(item); //
+                addToList(parser.getElement());
+            } else {
+                parser.apply(item);
+            }
         }
     }
 }

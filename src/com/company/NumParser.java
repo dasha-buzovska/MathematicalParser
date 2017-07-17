@@ -4,7 +4,7 @@ public class NumParser {
 
     public static String number = "";
 
-    public static String getNumber() {
+    public static String getElement() {
         return number;
     }
 
@@ -16,7 +16,7 @@ public class NumParser {
         number.concat(Character.toString(element));
     }
 
-    public static OperationParser startNewParser(char element) {
+    public static Object startNewParser(char element) {
         OperationParser parser = new OperationParser();
         return parser;
     }

@@ -4,7 +4,7 @@ public class OperationParser {
 
     public static String operation = "";
 
-    public static String getOperation() {
+    public static String getElement() {
         return operation;
     }
 
@@ -16,7 +16,7 @@ public class OperationParser {
         operation.concat(Character.toString(element));
     }
 
-    public static NumParser startNewParser(char element) {
+    public static Object startNewParser(char element) {
         NumParser parser = new NumParser();
         return parser;
     }
