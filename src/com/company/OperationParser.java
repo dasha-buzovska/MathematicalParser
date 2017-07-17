@@ -4,6 +4,10 @@ public class OperationParser {
 
     public static String operation = "";
 
+    public static String getOperation() {
+        return operation;
+    }
+
     public static boolean isEnd(char element) {
         return !Character.isDigit(element);
     }

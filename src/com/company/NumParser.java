@@ -4,6 +4,10 @@ public class NumParser {
 
     public static String number = "";
 
+    public static String getNumber() {
+        return number;
+    }
+
     public static boolean isEnd(char element) {
         return !Character.isDigit(element);
     }

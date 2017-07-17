@@ -15,6 +15,7 @@ class MathExpression {
     //конструктор
 
     NumParser parser = new NumParser();
+
     public MathExpression(String expression) {
         for (int i = 0; i < expression.length(); i++) {
             char item = expression.charAt(i);
