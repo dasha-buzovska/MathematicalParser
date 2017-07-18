@@ -33,4 +33,22 @@ class MathExpression {
         }
         addToList(parser.getElement());
     }
+
+    double CalculateFromList() {
+        double number = 0;
+        while (list.size() >= 3) {
+            for (int i = 1; i < list.size() - 1; i++) {
+                if (list.get(i).equals("+")) {
+                    number = Double.parseDouble(list.get(i-1)) + Double.parseDouble(list.get(i+1));
+                    list.remove(i+1);
+                    list.remove(i);
+                    list.remove(i-1);
+                    list.add(i-1, "" + number);
+                    i = i - 2;
+                }
+            }
+        }
+        System.out.println(number);
+        return number;
+    }
 }
