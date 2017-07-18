@@ -1,23 +1,24 @@
 package com.company;
 
-public class OperationParser {
+public class OperationParser implements GeneralParser {
 
-    public static String operation = "";
+    String operation = "";
 
-    public static String getElement() {
+    public String getElement() {
         return operation;
     }
 
-    public static boolean isEnd(char element) {
-        return !Character.isDigit(element);
+    public boolean isEnd(char element) {
+        return Character.isDigit(element);
     }
 
-    public static void apply(char element) {
-        operation.concat(Character.toString(element));
+    public void apply(char element) {
+        operation = operation.concat(Character.toString(element));
     }
 
-    public static Object startNewParser(char element) {
+    public GeneralParser startNewParser(char element) {
         NumParser parser = new NumParser();
+        parser.apply(element);
         return parser;
     }
 }
