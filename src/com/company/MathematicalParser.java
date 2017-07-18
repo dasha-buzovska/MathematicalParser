@@ -3,8 +3,7 @@ package com.company;
 class MathematicalParser {
 
     public static void main(String[] args) {
-        MathExpression expression = new MathExpression("-2+10-50+1");
-        expression.printList();
+        MathExpression expression = new MathExpression("10-2-2");
         expression.CalculateFromList();
     }
 }

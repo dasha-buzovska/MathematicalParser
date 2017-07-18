@@ -9,18 +9,20 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by user on 18.07.2017.
  */
-public class NumParserTest {
+public class OperationParserTest {
     @Test
     public void isEnd() throws Exception {
-        NumParser parser = new NumParser();
-        assertEquals(false, parser.isEnd('9'));
+        OperationParser parser = new OperationParser();
+        assertEquals(false, parser.isEnd('+'));
+
     }
 
     @Test
     public void startNewParser() throws Exception {
         OperationParser parser = new OperationParser();
         NumParser parser1 = new NumParser();
-        Objects.deepEquals(parser, parser1.startNewParser('+'));
+        Objects.deepEquals(parser1, parser.startNewParser('0'));
+
     }
 
 }
