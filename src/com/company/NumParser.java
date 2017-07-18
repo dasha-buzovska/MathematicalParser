@@ -2,7 +2,7 @@ package com.company;
 
 public class NumParser implements GeneralParser {
 
-    public String number = "";
+    String number = "";
 
     public String getElement() {
         return number;

@@ -20,7 +20,11 @@ class MathExpression {
 
     private GeneralParser parser;
     MathExpression(String expression) {
-        parser = new NumParser();
+        if (Character.isDigit(expression.charAt(0))) {
+            parser = new NumParser();
+        } else {
+            parser = new OperationParser();
+        }
         for (int i = 0; i < expression.length(); i++) {
             char item = expression.charAt(i);
             if (parser.isEnd(item)) {
@@ -32,14 +36,24 @@ class MathExpression {
 
         }
         addToList(parser.getElement());
+        if (list.get(0).equals("-")) {
+            list.add(0,"0");
+        }
     }
+
+    private String[] listOfOperations = new String[]{"-","+"};
 
     double CalculateFromList() {
         double number = 0;
-        while (list.size() >= 3) {
+        int j = 0;
+        while (list.size() >= 3 || j < listOfOperations.length) {
             for (int i = 1; i < list.size() - 1; i++) {
-                if (list.get(i).equals("+")) {
-                    number = Double.parseDouble(list.get(i-1)) + Double.parseDouble(list.get(i+1));
+                if (list.get(i).equals(listOfOperations[j])) {
+                    if (j == 0) {
+                        number = Double.parseDouble(list.get(i - 1)) - Double.parseDouble(list.get(i + 1));
+                    } else {
+                        number = Double.parseDouble(list.get(i - 1)) + Double.parseDouble(list.get(i + 1));
+                    }
                     list.remove(i+1);
                     list.remove(i);
                     list.remove(i-1);
@@ -47,6 +61,7 @@ class MathExpression {
                     i = i - 2;
                 }
             }
+            j++;
         }
         System.out.println(number);
         return number;
