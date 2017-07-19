@@ -41,7 +41,7 @@ class MathExpression {
         }
     }
 
-    private String[] listOfOperations = new String[]{"-","+"};
+    private String[] listOfOperations = new String[]{"*","-","+"};
 
     double CalculateFromList() {
         double number = 0;
@@ -49,11 +49,8 @@ class MathExpression {
         while (list.size() >= 3 || j < listOfOperations.length) {
             for (int i = 1; i < list.size() - 1; i++) {
                 if (list.get(i).equals(listOfOperations[j])) {
-                    if (j == 0) {
-                        number = Double.parseDouble(list.get(i - 1)) - Double.parseDouble(list.get(i + 1));
-                    } else {
-                        number = Double.parseDouble(list.get(i - 1)) + Double.parseDouble(list.get(i + 1));
-                    }
+                    NodeNumber node = new NodeNumber(list.get(i-1),list.get(i),list.get(i+1));
+                    number = node.getResult();
                     list.remove(i+1);
                     list.remove(i);
                     list.remove(i-1);
