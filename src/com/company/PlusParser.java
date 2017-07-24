@@ -1,11 +1,17 @@
 package com.company;
 
-public class OperationParser implements GeneralParser {
+import com.company.expressions.IGeneralExpression;
+import com.company.expressions.NumberExpression;
+
+/**
+ * Created by user on 24.07.2017
+ */
+public class PlusParser implements GeneralParser{
 
     String operation = "";
 
-    public String getElement() {
-        return operation;
+    public IGeneralExpression getExpression() {
+        return new NumberExpression(Double.parseDouble(operation));
     }
 
     public boolean isEnd(char element) {

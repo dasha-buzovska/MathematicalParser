@@ -5,46 +5,46 @@ import java.util.ArrayList;
 
 class MathExpression {
 
-    private ArrayList<String> list = new ArrayList<>();
+    private ArrayList<GeneralParser> list = new ArrayList<>();
 
-    private void addToList(String element) {
+    private void addToList(GeneralParser element) {
         list.add(element);
     }
 
-    void printList(){
+    /*void printList(){
         System.out.println(list.size());
         for (String aList : list) {
             System.out.println(aList);
         }
-    }
+    }*/
 
     private GeneralParser parser;
     MathExpression(String expression) {
         if (Character.isDigit(expression.charAt(0))) {
             parser = new NumParser();
         } else {
-            parser = new OperationParser();
+            parser = new MinusParser();
         }
         for (int i = 0; i < expression.length(); i++) {
             char item = expression.charAt(i);
             if (parser.isEnd(item)) {
-                addToList(parser.getElement());
+                addToList(parser);
                 parser = parser.startNewParser(item);
             } else {
                 parser.apply(item);
             }
 
         }
-        addToList(parser.getElement());
-        if (list.get(0).equals("-")) {
+        addToList(parser);
+        /*if (list.get(0).equals("-")) {
             list.add(0,"0");
-        }
+        }*/
     }
 
     private String[] listOfOperations = new String[]{"*","-","+"};
 
     double CalculateFromList() {
-        double number = 0;
+        /*double number = 0;
         int j = 0;
         while (list.size() >= 3 || j < listOfOperations.length) {
             for (int i = 1; i < list.size() - 1; i++) {
@@ -61,6 +61,8 @@ class MathExpression {
             j++;
         }
         System.out.println(number);
+        return number;*/
+        double number = 0;
         return number;
     }
 }

@@ -1,11 +1,14 @@
 package com.company;
 
+import com.company.expressions.IGeneralExpression;
+import com.company.expressions.NumberExpression;
+
 public class NumParser implements GeneralParser {
 
     String number = "";
 
-    public String getElement() {
-        return number;
+    public IGeneralExpression getExpression() {
+        return new NumberExpression(Double.parseDouble(number));
     }
 
     public boolean isEnd(char element) {
@@ -17,8 +20,15 @@ public class NumParser implements GeneralParser {
     }
 
     public GeneralParser startNewParser(char element) {
-        OperationParser parser = new OperationParser();
-        parser.apply(element);
-        return parser;
+        if (element == '+') {
+            PlusParser parser = new PlusParser();
+            parser.apply(element);
+            return parser;
+        } else if (element == '-') {
+            MinusParser parser = new MinusParser();
+            parser.apply(element);
+            return parser;
+        }
+        return null;
     }
 }

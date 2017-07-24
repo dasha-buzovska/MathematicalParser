@@ -1,10 +1,12 @@
 package com.company;
 
+import com.company.expressions.IGeneralExpression;
+
 public interface GeneralParser {
 
     boolean isEnd(char element);
     void apply(char element);
-    String getElement();
+    IGeneralExpression getExpression();
     GeneralParser startNewParser(char element);
 
 }
