@@ -1,7 +1,7 @@
-package com.company;
+package com.company.parsers;
 
 import com.company.expressions.IGeneralExpression;
-import com.company.expressions.NumberExpression;
+import com.company.expressions.MinusExpression;
 
 /**
  * Created by user on 24.07.2017
@@ -9,8 +9,18 @@ import com.company.expressions.NumberExpression;
 public class MinusParser implements GeneralParser {
     String minus = "";
 
+    IGeneralExpression expression;
+
+    public void createExpression(IGeneralExpression left, IGeneralExpression right) {
+        expression = new MinusExpression(left, right);
+    }
+
     public IGeneralExpression getExpression() {
-        return new NumberExpression(Double.parseDouble(minus));
+        return expression;
+    }
+
+    public byte getPriority() {
+        return 1;
     }
 
     public boolean isEnd(char element) {

@@ -1,17 +1,27 @@
-package com.company;
+package com.company.parsers;
 
 import com.company.expressions.IGeneralExpression;
-import com.company.expressions.NumberExpression;
+import com.company.expressions.PlusExpression;
 
 /**
  * Created by user on 24.07.2017
  */
-public class PlusParser implements GeneralParser{
+public class PlusParser implements GeneralParser {
 
     String operation = "";
 
+    IGeneralExpression expression;
+
+    public void createExpression(IGeneralExpression left, IGeneralExpression right) {
+        expression = new PlusExpression(left, right);
+    }
+
+    public byte getPriority() {
+        return 1;
+    }
+
     public IGeneralExpression getExpression() {
-        return new NumberExpression(Double.parseDouble(operation));
+        return expression;
     }
 
     public boolean isEnd(char element) {

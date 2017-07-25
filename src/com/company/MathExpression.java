@@ -1,6 +1,10 @@
 package com.company;
 //має бути 2 класи з цими трьома методами, перший числовий, інший для додавання
 
+import com.company.parsers.GeneralParser;
+import com.company.parsers.MinusParser;
+import com.company.parsers.NumParser;
+
 import java.util.ArrayList;
 
 class MathExpression {
@@ -63,6 +67,15 @@ class MathExpression {
         System.out.println(number);
         return number;*/
         double number = 0;
-        return number;
+
+        while (list.size() > 1) {
+            composeByPriority();
+        }
+
+        return list.get(0).getExpression().getValue();
+    }
+
+    public void composeByPriority() {
+
     }
 }

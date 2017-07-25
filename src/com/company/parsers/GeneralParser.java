@@ -1,4 +1,4 @@
-package com.company;
+package com.company.parsers;
 
 import com.company.expressions.IGeneralExpression;
 
@@ -8,5 +8,6 @@ public interface GeneralParser {
     void apply(char element);
     IGeneralExpression getExpression();
     GeneralParser startNewParser(char element);
+    byte getPriority();
 
 }

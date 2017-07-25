@@ -1,4 +1,4 @@
-package com.company;
+package com.company.parsers;
 
 import com.company.expressions.IGeneralExpression;
 import com.company.expressions.NumberExpression;
@@ -6,6 +6,10 @@ import com.company.expressions.NumberExpression;
 public class NumParser implements GeneralParser {
 
     String number = "";
+
+    public byte getPriority() {
+        return 0;
+    }
 
     public IGeneralExpression getExpression() {
         return new NumberExpression(Double.parseDouble(number));
