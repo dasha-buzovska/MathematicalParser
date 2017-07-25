@@ -76,16 +76,18 @@ class MathExpression {
     }
 
     public void composeByPriority() {
-        byte max = getMaxPriority(list);
+        
     }
 
-    public byte getMaxPriority(ArrayList<GeneralParser> list) {
+    public int getMaxPriorityIndex(ArrayList<GeneralParser> list) {
         byte max = 0;
+        int indexOfFirstMaxPriorityElement = 0;
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getPriority() > max) {
                 max = list.get(i).getPriority();
+                indexOfFirstMaxPriorityElement = i;
             }
         }
-        return max;
+        return indexOfFirstMaxPriorityElement;
     }
 }
