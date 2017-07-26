@@ -14,12 +14,4 @@ public class NumParserTest {
         NumParser parser = new NumParser();
         assertEquals(false, parser.isEnd('9'));
     }
-
-    @Test
-    public void startNewParser() throws Exception {
-        //OperationParser parser = new OperationParser();
-        //NumParser parser1 = new NumParser();
-        //Objects.deepEquals(parser, parser1.startNewParser('+'));
-    }
-
 }

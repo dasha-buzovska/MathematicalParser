@@ -5,11 +5,20 @@ import com.company.expressions.NumberExpression;
 
 public class NumParser implements GeneralParser {
 
-    String number = "";
+    byte priority = 0;
 
     public byte getPriority() {
-        return 0;
+        return priority;
     }
+
+    public void downgradePriority() {
+        priority--;
+    }
+
+    public void createExpression(IGeneralExpression left, IGeneralExpression right) {
+    }
+
+    String number = "";
 
     public IGeneralExpression getExpression() {
         return new NumberExpression(Double.parseDouble(number));
@@ -30,6 +39,14 @@ public class NumParser implements GeneralParser {
             return parser;
         } else if (element == '-') {
             MinusParser parser = new MinusParser();
+            parser.apply(element);
+            return parser;
+        } else if (element == '*') {
+            ProductParser parser = new ProductParser();
+            parser.apply(element);
+            return parser;
+        } else if (element == '/') {
+            DivisionParser parser = new DivisionParser();
             parser.apply(element);
             return parser;
         }

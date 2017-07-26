@@ -9,5 +9,6 @@ public interface GeneralParser {
     IGeneralExpression getExpression();
     GeneralParser startNewParser(char element);
     byte getPriority();
-
+    void createExpression(IGeneralExpression left, IGeneralExpression right);
+    void downgradePriority();
 }

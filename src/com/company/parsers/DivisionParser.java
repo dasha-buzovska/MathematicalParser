@@ -1,14 +1,14 @@
 package com.company.parsers;
 
+import com.company.expressions.DivisionExpression;
 import com.company.expressions.IGeneralExpression;
-import com.company.expressions.MinusExpression;
 
 /**
- * Created by user on 24.07.2017
+ * Created by user on 26.07.2017
  */
-public class MinusParser implements GeneralParser {
+public class DivisionParser implements GeneralParser {
 
-    byte priority = 1;
+    byte priority = 2;
 
     public byte getPriority() {
         return priority;
@@ -21,7 +21,7 @@ public class MinusParser implements GeneralParser {
     IGeneralExpression expression;
 
     public void createExpression(IGeneralExpression left, IGeneralExpression right) {
-        expression = new MinusExpression(left, right);
+        expression = new DivisionExpression(left, right);
     }
 
     public IGeneralExpression getExpression() {
@@ -32,10 +32,10 @@ public class MinusParser implements GeneralParser {
         return Character.isDigit(element);
     }
 
-    String minus = "";
+    String divide = "";
 
     public void apply(char element) {
-        minus = minus.concat(Character.toString(element));
+        divide = divide.concat(Character.toString(element));
     }
 
     public GeneralParser startNewParser(char element) {

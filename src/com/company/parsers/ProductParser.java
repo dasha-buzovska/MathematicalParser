@@ -5,9 +5,17 @@ import com.company.expressions.*;
 /**
  * Created by user on 24.07.2017
  */
-public class productParser implements GeneralParser {
+public class ProductParser implements GeneralParser {
 
-    String operation = "";
+    byte priority = 2;
+
+    public byte getPriority() {
+        return priority;
+    }
+
+    public void downgradePriority() {
+        priority = 0;
+    }
 
     IGeneralExpression expression;
 
@@ -15,13 +23,11 @@ public class productParser implements GeneralParser {
         expression = new ProductExpression(left, right);
     }
 
-    public byte getPriority() {
-        return 2;
-    }
-
     public IGeneralExpression getExpression() {
         return expression;
     }
+
+    String operation = "";
 
     public boolean isEnd(char element) {
         return Character.isDigit(element);

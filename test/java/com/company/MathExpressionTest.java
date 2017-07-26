@@ -13,5 +13,4 @@ public class MathExpressionTest {
         MathExpression expression = new MathExpression("10-2-2");
         assertEquals(6.0, expression.CalculateFromList(), 0.0001);
     }
-
 }

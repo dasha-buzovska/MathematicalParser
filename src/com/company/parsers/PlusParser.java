@@ -8,7 +8,15 @@ import com.company.expressions.PlusExpression;
  */
 public class PlusParser implements GeneralParser {
 
-    String operation = "";
+    byte priority = 1;
+
+    public byte getPriority() {
+        return priority;
+    }
+
+    public void downgradePriority() {
+        priority = 0;
+    }
 
     IGeneralExpression expression;
 
@@ -16,20 +24,18 @@ public class PlusParser implements GeneralParser {
         expression = new PlusExpression(left, right);
     }
 
-    public byte getPriority() {
-        return 1;
-    }
-
     public IGeneralExpression getExpression() {
         return expression;
     }
+
+    String plus = "";
 
     public boolean isEnd(char element) {
         return Character.isDigit(element);
     }
 
     public void apply(char element) {
-        operation = operation.concat(Character.toString(element));
+        plus = plus.concat(Character.toString(element));
     }
 
     public GeneralParser startNewParser(char element) {
