@@ -4,6 +4,10 @@ import com.company.parsers.GeneralParser;
 import com.company.parsers.NumParser;
 
 import java.util.ArrayList;
+//розберися з наслідуванням, подивись DivisionExpression, MinusExpression, PlusExpression, ProductExpression - в них є
+// однаковий код, значить його можна винести в один класс і потім наслідуватись від нього. Зробиш це покажеш.
+
+
 
 class MathExpression {
 

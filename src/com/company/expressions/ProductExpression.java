@@ -3,7 +3,7 @@ package com.company.expressions;
 /**
  * Created by user on 24.07.2017
  */
-public class ProductExpression implements IGeneralExpression {
+public class ProductExpression implements IGeneralExpression  {
 
     IGeneralExpression left, right;
 
