@@ -8,7 +8,7 @@ import com.company.expressions.PlusExpression;
  */
 public class PlusParser extends SuperParser {
 
-    public PlusParser() {
+    PlusParser() {
         priority = 1;
     }
 

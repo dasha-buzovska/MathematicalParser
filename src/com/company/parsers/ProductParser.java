@@ -7,7 +7,7 @@ import com.company.expressions.*;
  */
 public class ProductParser extends SuperParser {
 
-    public ProductParser() {
+    ProductParser() {
         priority = 2;
     }
 

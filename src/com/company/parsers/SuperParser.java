@@ -5,7 +5,7 @@ import com.company.expressions.IGeneralExpression;
 /**
  * Created by user on 27.07.2017
  */
-public class SuperParser implements GeneralParser {
+public abstract class SuperParser implements GeneralParser {
 
     byte priority;
 
@@ -17,7 +17,7 @@ public class SuperParser implements GeneralParser {
         priority = 0;
     }
 
-    String operation = "";
+    private String operation = "";
 
     IGeneralExpression expression;
 
@@ -25,7 +25,7 @@ public class SuperParser implements GeneralParser {
         return expression;
     }
 
-    public void createExpression(IGeneralExpression left, IGeneralExpression right) {}
+    public abstract void createExpression(IGeneralExpression left, IGeneralExpression right);
 
     public boolean isEnd(char element) {
         return Character.isDigit(element);

@@ -8,11 +8,12 @@ import com.company.expressions.IGeneralExpression;
  */
 public class DivisionParser extends SuperParser {
 
-    public DivisionParser() {
+    DivisionParser() {
         priority = 2;
     }
 
     public void createExpression(IGeneralExpression left, IGeneralExpression right) {
         expression = new DivisionExpression(left, right);
     }
+
 }

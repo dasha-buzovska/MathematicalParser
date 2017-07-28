@@ -8,7 +8,7 @@ import com.company.expressions.MinusExpression;
  */
 public class MinusParser extends SuperParser {
 
-    public MinusParser() {
+    MinusParser() {
         priority = 1;
     }
 
