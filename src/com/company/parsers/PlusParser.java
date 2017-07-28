@@ -6,7 +6,7 @@ import com.company.expressions.PlusExpression;
 /**
  * Created by user on 24.07.2017
  */
-public class PlusParser extends SuperParser implements GeneralParser {
+public class PlusParser extends SuperParser {
 
     public PlusParser() {
         priority = 1;

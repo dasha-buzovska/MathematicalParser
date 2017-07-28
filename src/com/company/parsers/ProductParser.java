@@ -5,7 +5,7 @@ import com.company.expressions.*;
 /**
  * Created by user on 24.07.2017
  */
-public class ProductParser extends SuperParser implements GeneralParser {
+public class ProductParser extends SuperParser {
 
     public ProductParser() {
         priority = 2;

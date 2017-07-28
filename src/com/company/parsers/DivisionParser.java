@@ -6,7 +6,7 @@ import com.company.expressions.IGeneralExpression;
 /**
  * Created by user on 26.07.2017
  */
-public class DivisionParser extends SuperParser implements GeneralParser {
+public class DivisionParser extends SuperParser {
 
     public DivisionParser() {
         priority = 2;

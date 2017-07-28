@@ -6,7 +6,7 @@ import com.company.expressions.MinusExpression;
 /**
  * Created by user on 24.07.2017
  */
-public class MinusParser extends SuperParser implements GeneralParser {
+public class MinusParser extends SuperParser {
 
     public MinusParser() {
         priority = 1;
