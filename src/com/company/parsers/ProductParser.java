@@ -7,14 +7,8 @@ import com.company.expressions.*;
  */
 public class ProductParser extends SuperParser implements GeneralParser {
 
-    byte priority = 2;
-
-    public byte getPriority() {
-        return priority;
-    }
-
-    public void downgradePriority() {
-        priority = 0;
+    public ProductParser() {
+        priority = 2;
     }
 
     public void createExpression(IGeneralExpression left, IGeneralExpression right) {

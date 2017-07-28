@@ -7,6 +7,16 @@ import com.company.expressions.IGeneralExpression;
  */
 public class SuperParser {
 
+    byte priority;
+
+    public byte getPriority() {
+        return priority;
+    }
+
+    public void downgradePriority() {
+        priority = 0;
+    }
+
     String operation = "";
 
     IGeneralExpression expression;

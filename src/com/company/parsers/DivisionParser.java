@@ -8,14 +8,8 @@ import com.company.expressions.IGeneralExpression;
  */
 public class DivisionParser extends SuperParser implements GeneralParser {
 
-    byte priority = 2;
-
-    public byte getPriority() {
-        return priority;
-    }
-
-    public void downgradePriority() {
-        priority = 0;
+    public DivisionParser() {
+        priority = 2;
     }
 
     public void createExpression(IGeneralExpression left, IGeneralExpression right) {
