@@ -15,4 +15,5 @@ public class PlusParser extends SuperParser {
     public void createExpression(IGeneralExpression left, IGeneralExpression right) {
         expression = new PlusExpression(left, right);
     }
+
 }
