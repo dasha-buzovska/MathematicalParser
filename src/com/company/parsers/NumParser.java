@@ -1,5 +1,6 @@
 package com.company.parsers;
 
+import com.company.ParserException;
 import com.company.expressions.IGeneralExpression;
 import com.company.expressions.NumberExpression;
 
@@ -32,7 +33,7 @@ public class NumParser implements GeneralParser {
         number = number.concat(Character.toString(element));
     }
 
-    public GeneralParser startNewParser(char element) {
+    public GeneralParser startNewParser(char element) throws ParserException {
         if (element == '+') {
             PlusParser parser = new PlusParser();
             parser.apply(element);
@@ -49,7 +50,8 @@ public class NumParser implements GeneralParser {
             DivisionParser parser = new DivisionParser();
             parser.apply(element);
             return parser;
+        } else {
+            throw new ParserException();
         }
-        return null;
     }
 }

@@ -1,5 +1,6 @@
 package com.company.parsers;
 
+import com.company.ParserException;
 import com.company.expressions.IGeneralExpression;
 
 /**
@@ -17,8 +18,6 @@ public abstract class SuperParser implements GeneralParser {
         priority = 0;
     }
 
-    private String operation = "";
-
     IGeneralExpression expression;
 
     public IGeneralExpression getExpression() {
@@ -28,16 +27,19 @@ public abstract class SuperParser implements GeneralParser {
     public abstract void createExpression(IGeneralExpression left, IGeneralExpression right);
 
     public boolean isEnd(char element) {
-        return Character.isDigit(element);
+        return true;
     }
 
-    public void apply(char element) {
-        operation = operation.concat(Character.toString(element));
-    }
+    public void apply(char element) {}
 
-    public GeneralParser startNewParser(char element) {
-        NumParser parser = new NumParser();
-        parser.apply(element);
-        return parser;
+
+    public GeneralParser startNewParser(char element) throws ParserException {
+        if (Character.isDigit(element)) {
+            NumParser parser = new NumParser();
+            parser.apply(element);
+            return parser;
+        } else {
+            throw new ParserException();
+        }
     }
 }

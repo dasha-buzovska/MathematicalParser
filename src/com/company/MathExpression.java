@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 
-class MathExpression {
+class MathExpression  {
 
     private ArrayList<GeneralParser> list = new ArrayList<>();
 
@@ -19,15 +19,19 @@ class MathExpression {
 
     private GeneralParser parser;
 
-    MathExpression(String expression) {
+    MathExpression(String expression) throws ParserException {
         parser = new NumParser();
         for (int i = 0; i < expression.length(); i++) {
             char item = expression.charAt(i);
-            if (parser.isEnd(item)) {
-                addToList(parser);
-                parser = parser.startNewParser(item);
-            } else {
-                parser.apply(item);
+            try {
+                if (parser.isEnd(item)) {
+                    addToList(parser);
+                    parser = parser.startNewParser(item);
+                } else {
+                    parser.apply(item);
+                }
+            } catch (Exception e) {
+                throw new ParserException();
             }
         }
         addToList(parser);
